@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>curring</h1>
+
+<script>
+    let multiply=function(x,y){
+        console.log(x*y)
+
+    }
+
+    let multiplybytwo=multiply.bind(this,2);
+    multiplybytwo(5)
+
+
+
+    let multiplys=function(x){
+        return function(y){
+            console.log(x*y)
+        }
+    }
+
+    let multiplybythree=multiplys(3);
+    multiplybythree(2)
+</script>
+</body>
+</html>

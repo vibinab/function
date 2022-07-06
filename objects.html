@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>call bind and apply</h1>
+<script>
+
+// call
+let obj1={
+    name:"xyz"
+}
+
+let obj2={
+    name:"zzz"
+}
+
+var displays= function(){
+    console.log(this.name)
+}
+
+displays.call(obj2)
+
+let o1={
+    num:2,
+    add:function(a,b,c){
+          return this.num+a+b+c
+    }
+}
+
+let o2={
+    num:5
+}
+
+console.log(o1.add.call(o2,1,5,6))
+var arr=[1,5,6]
+console.log(o1.add.apply(o2,arr))
+
+var binds=o1.add.bind(o2)
+console.log(binds(1,5,7))
+
+
+let student={
+    age:20,
+    printage:function(){
+        console.log(this.age)
+    }
+}
+
+let student1={
+    age:60
+}
+
+
+var b=student.printage.bind(student1)
+b()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
