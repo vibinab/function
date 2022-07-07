@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    
+<script>
+// this inside global scope
+
+this.table='window table'
+console.log(window.table) 
+
+this.garage={
+  table:'garage table'
+
+};
+console.log(this.garage.table)
+
+
+// this inside method 
+this.garage1={
+    table:'garage method table',
+    cleantable(){
+        console.log(`cleaning ${this.table}`)
+    }
+};
+
+this.garage1.cleantable()
+
+
+
+// this inside an object
+
+let johnsroom={
+    table:'john table'
+}
+
+console.log(johnsroom.table)
+
+// this inside a method
+let johnsmethod={
+    table:'john method table',
+    cleantable(){
+         console.log(`cleaning ${this.table}`)
+    }
+};
+
+johnsmethod.cleantable()
+
+
+// this inside a function
+// gobal scope
+this.tablef= 'function table'
+
+const cleantable= function(soap){
+    console.log(`cleaning ${this.tablef} using ${soap}`)
+}
+
+// use call function
+cleantable.call(this,'saop')
+
+
+this.garagefunction={
+    table:'garage function'
+}
+
+cleantable.call(this.garagefunction,'saop function')
+
+
+// object 
+let johnfunctionrom={
+    table:'table object function'
+}
+
+cleantable.call(johnfunctionrom,'function room')
+
+
+// this inside an inner function
+// const innercleantable= function(soap){
+  
+//     const innerfunction=function(saop1){
+//         console.log(`cleaning${this.table} using ${soap1}`)
+
+//     }
+// innerfunction(innersoap)
+// cleantable.call(this.innercleantable,'outersoap')
+
+
+this.innertable='that innetable'
+const innertab= function(soap){
+    let that=this
+    const inner =function(_soap){
+ console.log(` ${that.innertable} using ${_soap}`)
+    }
+    inner(soap)
+};
+innertab.call(this,'outersoapss')
+
+
+this.innertable1='call innetable'
+const innertab1= function(soap){
+    const inner =function(_soap){
+ console.log(` ${this.innertable1} using ${_soap}`)
+    }
+    inner.call(this, soap)
+};
+innertab1.call(this,'outer call soapss')
+
+
+this.innertable1='bind innetable'
+const innertab2= function(soap){
+    const inner =function(_soap){
+ console.log(` ${this.innertable1} using ${_soap}`)
+    }
+    inner.bind(this) (soap)
+};
+innertab2.call(this,'outer bind soapss')
+
+
+
+// arrow function
+
+this.arrowtable='arrow outertable'
+const arrowtable= function(soap){
+    const inner=(_soap)=>  {
+        console.log(`cleaning ${this.arrowtable} using ${_soap}`)
+    }
+    inner(soap)
+};
+
+arrowtable.call(this, "arrow inner")
+
+
+
+// this inside a constructor
+let createroom= function(name){
+    this.cont=`${name} room` 
+
+} 
+
+createroom.prototype.constable=function(soap){
+    console.log(`cleaning ${this.cont}  using ${soap}`)
+}
+const jills= new createroom('jill');
+const jr=new createroom('john')
+
+jills.constable("construcor")
+
+
+// this inside a class
+class classrom{
+    constructor(name){
+        this.classtable=`${name} table`
+    }
+
+    classtablefunction(soap){
+        console.log(`cleaning ${this.classtable} using ${soap}`)
+    }
+}
+
+const classobject= new classrom('classname')
+classobject.classtablefunction('function soaps')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.tablef= 'function table'
+
+// const cleantable= function(soap){
+//     console.log(`cleaning ${this.tablef} using ${soap}`)
+// }
+
+// // use call function
+// cleantable.call(this,'saop')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

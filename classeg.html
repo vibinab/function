@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    class Student{
+
+        static count=0
+        constructor(name, age, phonenumber, boardmarks){
+            this.name=name;
+            this.age=age;
+            this.phonenumber=phonenumber;
+            this.boardmarks=boardmarks;
+            Student.countstudent();
+        }
+        dis(){
+            console.log(`${this.name} ${this.age}${this.phonenumber}${this.boardmarks}`)
+        }
+
+        static countstudent(){
+            return Student.count++
+
+        }
+    }
+
+    const s1= new Student("a",20,122,30)
+    Student.prototype.check=function (){
+        if(this.boardmarks>=40){
+            console.log('egligible')
+        }
+        else {
+            console.log('not egligible')
+        }
+    }
+
+    s1.check()
+
+
+    const s2= new Student("b",25,222,50)
+    const s3= new Student("c",30,322,70)
+    const s4= new Student("d",35,422,80)
+    const s5= new Student("e",40,522,90)
+    console.log(Student.countstudent())
+</script>
+</body>
+</html>

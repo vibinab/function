@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>arrow</h1>
+<script>
+"use strict" 
+
+let getA=a=>a;
+console.log(getA(1))
+
+let square =a=> a*a;
+console.log(square(2))
+
+let square1= (a)=> {return a *a}
+console.log(square1(4)) 
+
+// global scope without argument
+var a=6;
+let square2=()=> {return a*a}
+console.log(square2())
+
+let mult=(a,b)=> {
+    return a*b
+}
+console.log(mult(5,10))
+
+// function own this
+// var x= function(){
+//      var that=this;
+//      this.val=1;
+//      setTimeout(function(){
+//         that.val++;
+//         console.log(that.val)},1)
+// };
+
+// var xx= new x();
+
+// arrow function takes parents this
+// var x= function(){
+//     this.val=1;
+//     setTimeout(()=> {
+//         this.val++;
+//         console.log(this.val)},1)
+
+// };
+// var xx= new x();
+
+// var yyy=function(){
+//     console.log(arguments[0])
+// };
+
+// yyy(5,2,3);
+
+
+// var aaa=(...n)=> {
+//     console.log(n[0])
+// };
+
+// aaa(7,8,9)
+
+
+class Student{
+    constructor(name,age,marks){
+        this.name=name;
+        this.age=age;
+        this.marks=marks
+    }
+
+    setPacementAge(minPlacementage){
+        return (minMarks)=> {
+            if(this.marks>minMarks && this.age>minPlacementage){
+                console.log(this.name+"is ready for placement")
+            }
+            else{
+                console.log(this.name+"is not ready for placeent")
+            }
+        }
+    }
+}
+
+
+const s1=new  Student('xyz',30,55)
+s1.setPacementAge(20)(50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
